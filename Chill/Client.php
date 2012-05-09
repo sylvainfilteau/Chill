@@ -239,7 +239,9 @@ class Client
 		}
 		elseif($status != 201)
 		{
-			throw new \Chill\Exception\Response('PUT /' . $id . ' - Unknown response status.');
+			throw new \Chill\Exception\Response(
+				'PUT /' . $id . ' - Unknown response status (code=' . $status . ', response=' . json_encode($response) . ').'
+			);
 		}
 				
 		if(isset($response['id']))
